@@ -1,0 +1,44 @@
+﻿@model BasketViewModel
+@{
+    Layout = null;
+}
+@if (Model.ProductDetails == null)
+{
+    <h1>Nothing</h1>
+}
+else
+{
+    foreach (var product in Model.ProductDetails)
+    {
+<div data-id="@product.Product.Id" class="row align-items-center justify-content-end">
+    <div class="col-2">
+        <img src="~/assets/img/product-@product.Product.Id/@product.Product.Image" class="w-100 p-3" />
+    </div>
+    <div class="col-5">
+        <p>@product.Product.Name</p>
+    </div>
+    <div class="col-2">
+        <div class="row">
+            <a class="col-3 minus btn btn-outline-info @((product.Count==0)?"disabled":null)">-</a>
+            <input class="col-5 mx-1" disabled value="@product.Count" />
+            <a class="col-3 plus btn btn-outline-info @((product.Count >= product.Product.Quantity)?"disabled":null)">+</a>
+        </div>
+    </div>
+    <div class="col-auto">
+        <p class="my-0">@(product.Product.Price)$</p>
+    </div>
+    <div class="col-auto">
+        <a class="btn btn-outline-danger remove"><i class="fas fa-trash fa-2x"></i></a>
+    </div>
+    <div class="col-12">
+        <h3 class="text-end">Total : @(product.Count * product.Product.Price)$</h3>
+    </div>
+</div>
+    }
+    <div class="row py-4 my-4">
+        <div class="col-12">
+            <h3 class="text-end">Summary : @Model.TotalPrice$</h3>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,40 @@
+﻿@model ContactViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>An User Message</h1>
+                <div class="page-title-subheading">
+                   Users can write good and bad impressions to you
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12 m-3">
+        <h1 class="text-center"><strong>From :</strong> <span class="font-italic">@Model.Message.Email</span></h1>
+    </div>
+
+    <div class="col-12 m-3">
+        <a href="C:\Users\ASUS\Desktop\Dark Comics Project - Copy\DarkComics\DarkComics\Areas\Admin\Views\Contact\Index.cshtml">C:\Users\ASUS\Desktop\Dark Comics Project - Copy\DarkComics\DarkComics\Areas\Admin\Views\Contact\Index.cshtml</a>
+        <h2><strong>Subject :</strong> <i>@Model.Message.Subject</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Message :</strong> <i>@Model.Message.Message</i></h2>
+    </div>
+    <div class="col-12 m-3">
+       <a class="btn btn-outline-dark" asp-controller="Contact" asp-action="Answer" asp-route-id="@Model.Message.Id">Answer</a>
+    </div>
+</div>

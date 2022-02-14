@@ -1,0 +1,291 @@
+﻿@model CharacterViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+<!-- Layout Section Start -->
+<section id="layout">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="layout">
+                    <img src="~/assets/img/character-@Model.Character.Id/@Model.Character.LayoutImage" 
+                         class="w-100 h-100 position-absolute top-0 start-0" alt="layout" />
+                    <div class="info-container">
+                        <div class="box">
+                            <img src="~/assets/img/character-@Model.Character.Id/@Model.Character.Profile" width="160" height="160" alt="profile" />
+                            <div class="info mx-5">
+                                <p class="mb-0 text-capitalize">@Model.Character.NickName</p>
+                                <h1>@Model.Character.HeroName.ToUpper()</h1>
+                                <h1 class="display-1 fw-bolder text-capitalize">@Model.Character.Name</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Layout Section End -->
+<!-- Skill Section Start -->
+<section id="skill">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12">
+                <h1 class="fw-bolder text-center">Power Skills</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column align-items-center">
+                <div class="skill-box">
+                    <div class="percent">
+                        <svg>
+                            <circle cx="70" cy="70" r="70"></circle>
+                            <circle id="percent" data-color="#8e44ad" data-degree="@Model.Character.Speed" cx="70" cy="70" r="70">
+                            </circle>
+                        </svg>
+                        <div class="number">
+                            <h2 class="display-1 fw-bolder">@Model.Character.Speed</h2>
+                        </div>
+                    </div>
+                    <h3 class="my-4 text-center">Speed</h3>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column align-items-center">
+                <div class="skill-box">
+                    <div class="percent">
+                        <svg>
+                            <circle cx="70" cy="70" r="70"></circle>
+                            <circle id="percent" data-color="#16a085" data-degree="@Model.Character.Strength" cx="70" cy="70" r="70">
+                            </circle>
+                        </svg>
+                        <div class="number">
+                            <h2 class="display-1 fw-bolder">@Model.Character.Strength</h2>
+                        </div>
+                    </div>
+                    <h3 class="my-4 text-center">Strength</h3>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column align-items-center">
+                <div class="skill-box">
+                    <div class="percent">
+                        <svg>
+                            <circle cx="70" cy="70" r="70"></circle>
+                            <circle id="percent" data-color="#45f3ff" data-degree="@Model.Character.Intelligence" cx="70" cy="70" r="70">
+                            </circle>
+                        </svg>
+                        <div class="number">
+                            <h2 class="display-1 fw-bolder">@Model.Character.Intelligence</h2>
+                        </div>
+                    </div>
+                    <h3 class="my-4 text-center">Intelligence</h3>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column align-items-center">
+                <div class="skill-box">
+                    <div class="percent">
+                        <svg>
+                            <circle cx="70" cy="70" r="70"></circle>
+                            <circle id="percent" data-color="#3B3B98" data-degree="@Model.Character.Energy" cx="70" cy="70" r="70">
+                            </circle>
+                        </svg>
+                        <div class="number">
+                            <h2 class="display-1 fw-bolder">@Model.Character.Energy</h2>
+                        </div>
+                    </div>
+                    <h3 class="my-4 text-center">Energy</h3>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column align-items-center">
+                <div class="skill-box">
+                    <div class="percent">
+                        <svg>
+                            <circle cx="70" cy="70" r="70"></circle>
+                            <circle id="percent" data-color="#3d3d3d" data-degree="@Model.Character.Durability" cx="70" cy="70" r="70">
+                            </circle>
+                        </svg>
+                        <div class="number">
+                            <h2 class="display-1 fw-bolder">@Model.Character.Durability</h2>
+                        </div>
+                    </div>
+                    <h3 class="my-4 text-center">Durability</h3>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex flex-column align-items-center">
+                <div class="skill-box">
+                    <div class="percent">
+                        <svg>
+                            <circle cx="70" cy="70" r="70"></circle>
+                            <circle id="percent" data-color="#FDA7DF" data-degree="@Model.Character.Fighting" cx="70" cy="70" r="70">
+                            </circle>
+                        </svg>
+                        <div class="number">
+                            <h2 class="display-1 fw-bolder">@Model.Character.Fighting</h2>
+                        </div>
+                    </div>
+                    <h3 class="my-4 text-center">Fighting</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Skill Section End -->
+<!-- Biography Section Start -->
+<section id="biography" class="py-5 my-0">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-12 col-lg-8 bg-white">
+                <div class="row">
+                    <div class="col-12 position-relative">
+                        <h1 class="heading">Biography</h1>
+                    </div>
+                </div>
+                <div class="biography px-5">
+                    @Html.Raw(Model.Character.AboutCharacter)
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="row">
+                    @foreach (var characterNews in Model.Character.CharacterNews)
+                    {
+                        <div class="col-12 col-md-6 col-lg-12 my-5">
+                            <div class="news-card rounded">
+                                <div class="image-box">
+                                    <img src="~/assets/img/news/news-@characterNews.Id/@characterNews.News.Image" class="w-100 h-100 rounded" alt="">
+                                    <div class="date">
+                                        <h2 class="text-white">@characterNews.News.CreatedDate.GetValueOrDefault().ToString("MMM dd")</h2>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h2>@characterNews.News.Title</h2>                                   
+                                <div class="my-3">
+                                    @Html.Raw(characterNews.News.ShortDescription)
+                                </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <a class="comment mx-1" href=""><i class="far fa-comment"> 8</i></a>
+                                            <a class="like mx-1" href=""><i class="far fa-heart"></i> 5</a>
+                                        </div>
+                                        <a asp-controller="News" asp-action="Details" asp-route-id="@characterNews.News.Id" class="news-card__btn">Go Detail...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Biography Section End -->
+<!-- Fact Section Start -->
+<section id="fact" class="py-5 my-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="fw-bolder text-center my-5">Character Facts</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-5 border-top">
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <p class="text-dark text-center fw-bold">Power: </p>
+                    </div>
+                    <div class="col-12 col-md-8 my-1">
+                        <i>
+                            @foreach (var characterPower in Model.Character.CharacterPowers)
+                            {
+                                @(characterPower.Power.Name + ",");
+                            }
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 offset-lg-2 border-top">
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <p class="text-dark text-center fw-bold">HomeLand: </p>
+                    </div>
+                    <div class="col-12 col-md-8 my-1">
+                        <i>@Model.Character.City.Name</i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-5 border-top">
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <p class="text-dark text-center fw-bolder">Weight: </p>
+                    </div>
+                    <div class="col-12 col-md-8 my-1">
+                        <i>@Model.Character.Weight</i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 offset-lg-2 border-top">
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <p class="text-dark text-center fw-bolder">Height: </p>
+                    </div>
+                    <div class="col-12 col-md-8 my-1">
+                        <i>@Model.Character.Height</i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-5 border-top">
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <p class="text-dark text-center fw-bolder">Hair</p>
+                    </div>
+                    <div class="col-12 col-md-8 my-1">
+                        <i>@Model.Character.HairStyle</i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 offset-lg-2 border-top">
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <p class="text-dark text-center fw-bolder">Education</p>
+                    </div>
+                    <div class="col-12 col-md-8 my-1">
+                        <i>@Model.Character.Education</i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-5 border-top">
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <p class="text-dark text-center fw-bolder">Eyse</p>
+                    </div>
+                    <div class="col-12 col-md-8 my-1">
+                        <i>@Model.Character.EyeColor</i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 offset-lg-2 border-top">
+                <div class="row">
+                    <div class="col-12 col-md-4 my-1">
+                        <p class="text-dark text-center fw-bolder">First Appearance</p>
+                    </div>
+                    <div class="col-12 col-md-8 my-1">
+                        <i>@Model.Character.FirstAppearance</i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        
+
+</section>
+<!-- Fact Section End -->
+

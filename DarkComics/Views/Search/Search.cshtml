@@ -1,0 +1,35 @@
+﻿@model SearchViewModel
+@{
+    ViewData["Title"] = "Search";
+}
+
+
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center my-4">Results</h1>
+            </div>
+        </div>
+        <div class="row">
+
+            @foreach (var product in Model.Products)
+            {
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div class="item">
+                    <div class="volume">
+                        <a href="#" class="volume__body">
+                            <img src="~/assets/img/product-@product.Id.ToString()/@product.Image" class="w-100 h-100" alt="cover" />
+                        </a>
+                        <div class="volume__footer">
+                            <h5 class="text-center fw-bold my-3">@product.Name</h5>
+                            <a data-id="@product.Id" class="basket btn volume__btn" data-toggle="modal" data-target=".bd-example-modal-lg">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    }             
+
+            </div>
+    </div>
+</section>

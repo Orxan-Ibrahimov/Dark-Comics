@@ -1,0 +1,64 @@
+﻿@model NewsViewModel
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>The News</h1>
+                <div class="page-title-subheading">
+                    Wide selection of buttons that feature different styles for backgrounds, borders and hover options!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="mb-0 table table-dark table-hover table-hover-flip">
+            <thead>
+                <tr>
+                    <th><h3>#</h3></th>
+                    <th><h3>News</h3></th>
+                    <th><h3>Blogger</h3></th>
+                    <th><h3>Description</h3></th>
+                    <th><h3>CreatedDate</h3></th>
+                    <th>
+                        <h3 class="text-center">
+                            <a asp-action="Create" class="mb-2 mr-2 btn btn-outline-success"><i class="pe-7s-news-paper pe-lg"></i></a>
+                        </h3>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var news in Model.NewsList)
+                {
+                    {
+                        count++;
+                    }
+                    <tr>
+                        <th scope="row">@count</th>
+
+                        <td>@news.Title</td>
+                        <td>@news.Blogger</td>
+                        <td>@Html.Raw(news.ShortDescription).ToString().Substring(0, 20)</td>
+                        <td>@news.CreatedDate.GetValueOrDefault().ToString("yyyy-MM-dd HH:mm::ss")</td>
+                        <td class="text-center">
+                            <a asp-action="Detail" asp-route-id="@news.Id" class="mb-2 mr-2 btn btn-outline-info"><i class="pe-7s-look pe-lg"></i></a>
+                            <a asp-action="Update" asp-route-id="@news.Id" class="mb-2 mr-2 btn btn-outline-warning"><i class="pe-7s-pen pe-lg"></i></a>
+                            <a asp-action="Delete" asp-route-id="@news.Id" class="mb-2 mr-2 btn btn-outline-danger"><i class="pe-7s-trash pe-lg"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

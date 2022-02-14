@@ -1,0 +1,29 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Default";
+}
+<!-- login form Start -->
+<div class="login-form-box">
+
+    <div id="close-login-btn" class="fas fa-times"></div>
+
+    <form asp-controller="account" asp-action="login" method="post">
+        <h3>sign in</h3>
+
+        <input asp-for="Username" class="box" placeholder="enter your password" id="">
+        <span asp-validation-for="Username"></span>
+
+        <input asp-for="Password" class="box" placeholder="enter your email" id="">
+        <span asp-validation-for="Password"></span>
+
+        <div class="checkbox">
+            <input type="checkbox" name="" id="remember-me">
+            <label for="remember-me"> remember me</label>
+        </div>
+        <input type="submit" value="sign in" class="btn">
+        <p>forget password ? <a href="#">click here</a></p>
+        <p>don't have an account ? <a asp-controller="account" asp-action="Register">create one</a></p>
+    </form>
+
+</div>
+<!-- login form End -->

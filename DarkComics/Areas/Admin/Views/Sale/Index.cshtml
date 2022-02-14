@@ -1,0 +1,55 @@
+﻿@model SaleViewModel
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Cities</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="mb-0 table table-dark table-hover table-hover-flip">
+            <thead>
+                <tr>
+                    <th><h3>#</h3></th>
+                    <th><h3>CLient</h3></th>
+                    <th><h3>Descriion</h3></th>
+                    <th><h3>Created Date</h3></th>
+                    <th><h3 class="text-center">Operations</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sale in Model.Sales)
+                {
+                    {
+                        count++;
+                    }
+                <tr>
+                    <td scope="row">@count</td>
+                    <td>@sale.Client</td>
+                    <td>@Html.Raw(sale.Description)</td>
+                    <td>@(sale.CreatedDate>DateTime.Now.AddDays(-1)?(sale.CreatedDate.ToString("HH:mm")):(sale.CreatedDate.ToString("dd MMM")))</td>
+                    <td class="text-center">
+                        <a asp-action="Detail" asp-route-id="@sale.Id" class="mb-2 mr-2 btn btn-outline-info"><i class="pe-7s-look pe-lg"></i></a>
+                    </td>
+
+
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

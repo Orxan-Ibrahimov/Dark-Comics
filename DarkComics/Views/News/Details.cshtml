@@ -1,0 +1,80 @@
+﻿@model NewsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section class="my-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <img src="~/assets/img/news/news-@Model.News.Id/@Model.News.Image" class="w-100" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1 py-4 px-5 bg-dark text-white">
+                <h2>@Model.News.Title</h2>
+                <p>By <span class="text-info">@Model.News.Blogger</span></p>
+                <p><small>@Model.News.CreatedDate.GetValueOrDefault().ToString("dddd, dd MMMM, yyyy")</small></p>
+            </div>
+        </div>
+        <div class="row py-5">
+            <div class="col-12">
+                @Html.Raw(Model.News.Text)
+            </div>
+            <div class="col-8 offset-2">
+                <h3 class="fw-bold">Tags</h3>
+                @foreach (var tagNews in Model.News.TagNews)
+                {
+                    <a class="btn btn-outline-dark" asp-controller="Search" asp-action="SearchNews" asp-route-id="@tagNews.Tag.Id">@tagNews.Tag.Title</a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="my-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Comment</h1>
+                <ul id="addHere">
+                    @foreach (var postComment in Model.News.PostComments.Where(pc=>pc.Comment.IsActive))
+                    {
+                        <li class="list-group-item list-group-item-info border-0">
+                            <h1>@postComment.Comment.User.UserName</h1>
+                            <p>@postComment.Comment.Message</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="row">
+                <div class="col-12 d-flex">
+                    <img width="50" height="50" class="rounded-circle" src="~/assets/img/users/@Model.AppUser.Image" />
+                    <form class="w-100 mx-2">
+                        <input type="hidden" asp-for="@Model.News.Id" class="form-control" />
+                        <div class="form-group position-relative d-flex justify-content-end align-items-center">
+                            <input multiple class="form-control rounded-0 border-dark border-0 border-bottom" asp-for="Comment.Message">
+                            <span class="btn btn-success" id="SendMessage">Send Message</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+       
+        else
+        {
+        <h1>You aren't User'</h1>
+        }
+
+    </div>
+</section>
+

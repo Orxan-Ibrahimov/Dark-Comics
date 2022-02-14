@@ -1,0 +1,46 @@
+﻿@model FooterViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Add a Social Link</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <form enctype="multipart/form-data" class="needs-validation" novalidate="" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="SocialLink.Link"></label>
+                    <input asp-for="SocialLink.Link" class="form-control" placeholder="Social Link" required>
+                    <span asp-validation-for="SocialLink.Link"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="SocialLink.Icon"></label>
+                    <input asp-for="SocialLink.Icon" class="form-control" placeholder="Type here Social Icon Class" required>
+                    <span asp-validation-for="SocialLink.Icon"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="SocialLink.FooterId"></label>
+                    <select asp-for="SocialLink.FooterId" asp-items="@Model.FooterList" class="form-control">
+                    </select>
+                    <span asp-validation-for="SocialLink.FooterId"></span>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Add</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@model ComicViewModel
+@{ 
+    Layout = null;
+}
+@foreach (var serie in Model.Series)
+{
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="volume my-5">
+            <div href="#" class="volume__body">
+                <img src="~/assets/img/comics/serie-@serie.Id.ToString()/@serie.Cover"
+                     class="w-100 h-100" alt="volume">
+                <img src="~/assets/img/comics/serie-@serie.Id.ToString()/@serie.Backface"
+                     class="w-100 h-100" alt="volume">
+            </div>
+            <div class="volume__footer">
+                <h5 class="text-center fw-bold my-3">@serie.Name</h5>
+                <a asp-controller="Comic" asp-action="FIlterSerie" asp-route-id="@serie.Id" class="volume__btn">Go Volume</a>
+            </div>
+        </div>
+    </div>
+}

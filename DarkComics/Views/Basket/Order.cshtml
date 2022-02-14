@@ -1,0 +1,48 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Order";
+}
+
+<section class="m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 offset-lg-3">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert text-danger"></div>
+
+                    <div class="form-group my-4">
+                        <input asp-for="SaleData.Client" class="form-control my-2" placeholder="FullName" required>
+                        <span asp-validation-for="SaleData.Client" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-4">
+                        <textarea asp-for="SaleData.Email" class="form-control my-2" placeholder="Email" required></textarea>
+                        <span asp-validation-for="SaleData.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-4">
+                        <textarea asp-for="SaleData.Address" class="form-control my-2" placeholder="Address" required></textarea>
+                        <span asp-validation-for="SaleData.Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-4">
+                        <input asp-for="SaleData.BirthDay" class="form-control my-2" required>
+                        <span asp-validation-for="SaleData.BirthDay" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-4">
+                        <input asp-for="SaleData.Home" class="form-control my-2" placeholder="Example : 050 111 11 11" required>
+                        <span asp-validation-for="SaleData.Home" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-4">
+                        <input asp-for="SaleData.Mobile" class="form-control my-2" placeholder="Example : 65 3 33 33" required>
+                        <span asp-validation-for="SaleData.Mobile" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-4">
+                        <textarea asp-for="SaleData.Description" rows="5" cols="5" class="form-control my-2" placeholder="Add what you want" required></textarea>
+                        <span asp-validation-for="SaleData.Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary submit-btn btn-block">Buy</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,87 @@
+﻿@model FooterViewModel
+@{
+    Layout = null;
+}
+
+<!-- Footer Start -->
+<footer>
+    <div class="responsive-footer container">
+        <div class="row w-100">
+            <div class="col-12 col-xl-3">
+                <div class="social-networks">
+                    <nav>
+                        <ul class="social-list justify-content-center">
+                            @if (Model.Footer != null)
+                            {
+                                @foreach (var social in Model.Footer.SocialLinks)
+                                {
+                                    <li class="social-list-item">
+                                        <a href="@social.Link" target="_blank">
+                                            <i class="@social.Icon"></i>
+                                        </a>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                    <p class="text-center">©2021 MARVEL</p>                   
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-9">
+                <div class="row">
+                    <ul class="col-12 col-md-6 col-lg-4">
+                        <h3>About Us</h3>
+                        <li class="my-3">
+                            <p class="text-white"><span class="text-success fw-bold"><i class="fas fa-map-marked-alt"></i> Address : </span>@(Model.Footer?.Address)</p>
+                        </li>
+                        <li class="my-3">
+                            <p class="text-white"><span class="text-success fw-bold"><i class="fas fa-envelope"></i> Email : </span>@(Model.Footer?.Email)</p>
+                        </li>
+                        <li class="my-3">
+                            <p class="text-white"><span class="text-success fw-bold"><i class="fas fa-phone-alt"></i> Call Us : </span>@(Model.Footer?.Phone)</p>
+                        </li>
+                    </ul>
+
+                    <ul class="col-12 col-md-6 col-lg-4">
+                        <h3>Our Services</h3>
+                        <li>
+                            <a asp-controller="Home" asp-action="Index">Best Products</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Character" asp-action="Index">Popular Characters</a>
+                        </li>
+                        <li>
+                            <a asp-controller="News" asp-action="Index">Last News</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Comic" asp-action="Index">The New Series</a>
+                        </li>
+                    </ul>
+
+                    <div class="col-12 col-md-6 col-lg-4 p-4">
+                        <h3 class="text-center text-white fw-bold">Contact Us</h3>
+                        <form asp-controller="Home" asp-action="Contact" method="post">
+                            <div class="form-group my-2">
+                                <input asp-for="Contact.Email" class="form-control" placeholder="Your Email" required>
+                                <span asp-validation-for="Contact.Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group my-2">
+                                <input asp-for="Contact.Subject" class="form-control" placeholder="Subject" required>
+                                <span asp-validation-for="Contact.Subject" class="text-danger"></span>
+                            </div>
+                            <div class="form-groupmy-2">
+                                <textarea asp-for="Contact.Message" class="form-control" rows="5" cols="5" placeholder="How we can help ?" required></textarea>
+                                <span asp-validation-for="Contact.Message" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success w-100 my-2 submit-btn btn-block">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer End -->

@@ -1,0 +1,39 @@
+﻿@model PaginationViewModel<News>
+@{
+    ViewData["Title"] = "Index";
+}
+
+  @await Component.InvokeAsync("News");
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            @foreach (var news in Model.Products)
+            {
+                <div class="col-12 col-md-6 col-lg-4 my-4">
+                    <div class="card rounded">
+                        <a asp-controller="News" asp-action="Details" asp-route-id="@news.Id" class="card-header border-0">
+                            <img src="~/assets/img/news/news-@news.Id/@news.Image" class="w-100" alt="news" />
+                        </a>
+                        <div class="card-body border-0">
+                            <h5 class="card-title"><a asp-controller="News" asp-action="Details" asp-route-id="@news.Id">@news.Title</a></h5>
+                            <p class="card-text">@Html.Raw(news.ShortDescription)</p>
+                        </div>
+                        <div class="card-footer border-0 d-flex justify-content-end">
+                            <a class="mx-1 btn rounded-circle btn-outline-dark"><i class="fab fa-facebook-f"></i></a>
+                            <a class="mx-1 btn rounded-circle btn-outline-dark"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row my-5">
+            <div class="col-12">
+                <nav class="" aria-label="Page navigation example">
+                    @Html.Raw(@Model.Getpagination(Url, "Index"))
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>

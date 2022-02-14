@@ -1,0 +1,158 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!-- Last Week Added Comics End -->
+<section id="LastPost">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">May be You Also Like</h1>
+            </div>
+        </div>
+        <div class="row py-5">
+            <div class="col-12">
+                <div class="owl-carousel owl-theme">
+                    @foreach (var filteredComic in Model.FilteringComics)
+                    {
+                        <div class="item rounded">
+                            <div class="recommendation">
+                                <a href="#" class="recommendation__body">
+                                    <img src="~/assets/img/product-@filteredComic.Id/@filteredComic.Image"
+                                         class="w-100 h-100" alt="volume">
+                                </a>
+                                <div class="recommendation__footer w-100 d-flex flex-column">
+                                    <a href="">@filteredComic.Name</a>
+                                    <a href="">Orxan Ibrahimov</a>
+                                    <a href="">@((filteredComic.Quantity > 0)?"Available":"Not Available")</a>
+                                    <a href="" class="text-danger">$@filteredComic.Price.ToString(".00")</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Last Week Added Comics Start-->
+
+<!-- Characters Section Start -->
+<section id="characters" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 heading position-relative py-5">
+                <h1 class="text-center text-white">Characters</h1>
+                <div class="d-none d-lg-block position-absolute top-0 end-0">
+                    <img src="~/assets/img/hero-read-comic.png" width="250" alt="hero-read-comic" />
+                </div>
+            </div>
+
+            <div class="col-12 cards">
+                <div class="row">
+                    @foreach (var character in Model.Characters)
+                    {
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="circle-image">
+                                        <a href="https://comicvine.gamespot.com/cassie-lang/4005-40516/">
+                                            <img src="~/assets/img/character-@character.Id/@character.FirstImage" alt="@character.HeroName" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <h1 class="text-center">@character.Name - @character.HeroName</h1>
+                                <div class="card-body">
+                                    <p>
+                                        @Html.Raw(character.ShortDescription)
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="https://comicvine.gamespot.com/cassie-lang/4005-40516/" target="_blank"
+                                       class="button">Read more ...</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Characters Section End -->
+
+<!-- Comics Start -->
+<section id="bestComics">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 position-relative">
+                <span class="heading px-4">The Best 3 Comics</span>
+               
+                <div id="hero-background" data-img="" class="d-none d-lg-flex justify-content-between w-100">
+                    <img src="~/assets/img/hero-1.png" width="300" alt="hero-read-comic" />
+                    <img src="~/assets/img/hero-3.png" width="300" alt="hero-read-comic" />
+                   
+                </div>
+            </div>            
+        </div>
+        <div class="row py-5 my-5">
+            @foreach (var bestComic in Model.BestComics)
+            {
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="cover my-5">
+                        <div class="comics">
+                            <figure class="front" style="z-index:2;">
+                                <img src="~/assets/img/product-@bestComic.Id/@bestComic.Image" class="w-100 h-100" alt="cover" />
+                            </figure>
+                            <figure class="back">
+                                <img src="~/assets/img/product-@bestComic.Id/@bestComic.ComicDetail.Backface" class="w-100 h-100" alt="backface" />
+                            </figure>
+                        </div>
+                        <div class="cover__info text-white px-3">
+                            <h5>@bestComic.Name</h5>
+                            <p><strong>Type : </strong>@bestComic.Category.ToString()</p>
+                            <p><strong>Price : </strong>@bestComic.Price.ToString(".00")</p>
+                            <p><strong>Art By : </strong>Orxan Ibra</p>
+                            <p><strong>Written By : </strong>Orxan Ibra</p>
+                            <p><strong>Page Count : </strong>@bestComic.ComicDetail.PageCount</p>
+                            <a asp-controller="Comic" asp-action="Detail" asp-route-id="@bestComic.Id" class="cover__btn">Go Detail</a>
+                            <a data-id="@bestComic.Id" class="basket btn volume__btn" data-toggle="modal" data-target=".bd-example-modal-lg">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>
+<!-- Comics End -->
+
+<!-- Current Series Start -->
+<section id="current">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <span class="heading">Current Series</span>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var serie in Model.Series)
+            {
+                <div class="col-6 offset-3 offset-sm-0 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <a asp-controller="Comic" asp-action="FilterSerie" asp-route-id="@serie.Id" class="comic-box">
+                        <div class="comic-box__body">
+                            <img src="~/assets/img/comics/serie-@serie.Id/@serie.Cover" class="w-100 h-100" alt="current" />
+                        </div>
+                        <div class="comic-box__footer">
+                            <h5 class="text-white">@serie.Name</h5>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Current Series End -->

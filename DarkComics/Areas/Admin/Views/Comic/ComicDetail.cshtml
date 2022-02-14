@@ -1,0 +1,72 @@
+﻿@model ComicViewModel
+@{
+    ViewData["Title"] = "ComicDetail";
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Comic Detail</h1>
+                <div class="page-title-subheading">
+                    Wide selection of buttons that feature different styles for backgrounds, borders and hover options!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    @*<div class="col-12 m-3">
+            <h1 class="text-center">@Model.Comic.Name</h1>
+        </div>*@
+    <div class="col-12 mx-3 my-5  d-flex justify-content-center">
+        <img src="~/assets/img/product-@Model.Comic.Id/@Model.Comic.Image" width="400" height="600" />
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Name :</strong> <i>@Model.Comic.Name</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Quantity :</strong> <i>@Model.Comic.Quantity</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Price :</strong> <i>@Model.Comic.Price $</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Created Date :</strong> <i>@Model.Comic.CreatedDate.ToString("yyyy/MM/dd HH:mm:ss")</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Type :</strong> <i>@(Model.Comic.ComicDetail.IsCover?"Cover":"Personal")</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Serie :</strong> <i>@Model.Comic.ComicDetail.Serie.Name</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>PageCount :</strong> <i>@Model.Comic.ComicDetail.PageCount</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2>
+            <strong>Characters :</strong>
+            @foreach (var character in Model.Comic.ProductCharacters)
+            {
+                <img width="50" height="50" class="rounded-circle" src="~/assets/img/character-@character.Character.Id/@character.Character.Profile" alt="@character.Character.Name" />
+            }
+        </h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Category :</strong> <i>@Model.Comic.Category</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Status :</strong> <i>@(Model.Comic.IsActive?"Active":"DeActive")</i></h2>
+    </div>
+
+    <div class="col-12 m-3 bg-white">
+        <h2 class="my-4"><strong>Description :</strong></h2>
+        @Html.Raw(Model.Comic.Description)
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model FooterViewModel
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Edit the City</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <form enctype="multipart/form-data" class="needs-validation" novalidate="" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="SocialLink.Id" />
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Footer.Title"></label>
+                    <input asp-for="Footer.Title" class="form-control" placeholder="Footer Title" required>
+                    <span asp-validation-for="Footer.Title"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Footer.Phone"></label>
+                    <input asp-for="Footer.Phone" class="form-control" placeholder="Phone" required>
+                    <span asp-validation-for="Footer.Phone"></span>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Footer.Email"></label>
+                    <input asp-for="Footer.Email" class="form-control" placeholder="Email" required>
+                    <span asp-validation-for="Footer.Email"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Footer.Address"></label>
+                    <textarea asp-for="Footer.Address" rows="4" cols="4" class="form-control" placeholder="Address" required></textarea>
+                    <span asp-validation-for="Footer.Address"></span>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Add</button>
+        </form>
+    </div>
+</div>

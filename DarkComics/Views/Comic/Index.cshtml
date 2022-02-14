@@ -1,0 +1,66 @@
+﻿@model ComicViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Random Comics End -->
+<section class="m-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center my-4">Random Comics</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel owl-theme">
+                    @foreach (var randomComic in Model.RandomComics)
+                    {
+                        <div class="item">
+                            <div class="volume">
+                                <a href="#" class="volume__body">
+                                    <img src="~/assets/img/product-@randomComic.Id.ToString()/@randomComic.Image" class="w-100 h-100" alt="cover" />
+                                    <img src="~/assets/img/product-@randomComic.Id.ToString()/@randomComic.ComicDetail.Backface" class="w-100 h-100" alt="backface" />
+                                </a>
+                                <div class="volume__footer">
+                                    <h5 class="text-center fw-bold my-3">@randomComic.Name</h5>
+                                    <a data-id="@randomComic.Id" class="basket btn volume__btn" data-toggle="modal" data-target=".bd-example-modal-lg">Add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>     
+    </div>
+</section>
+<!-- Random Comics Start -->
+<!-- Series Start-->
+
+
+
+<section>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-12">
+                <h1 class="text-center">Series</h1>
+            </div>
+        </div>
+        <div class="row" id="search">
+            <div class="col-12">
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row py-5" id="addHere">
+            @*<partial name="_LoadMore" />*@
+        </div>
+        <div class="row my-5">
+            <div class="col-12">
+                <span class="btn btn-success" id="loadMore">Load More</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Series End-->

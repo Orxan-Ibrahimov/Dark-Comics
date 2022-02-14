@@ -1,0 +1,186 @@
+﻿@model ComicViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<!-- Comics Detail Start -->
+<section id="detail" class="bg-warning">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-4">
+                <img src="~/assets/img/product-@Model.Comic.Id/@Model.Comic.Image" height="650" class="w-100" alt="cover" />
+            </div>
+            <div class="col-12 col-lg-8 position-relative">
+                <h1 class="text-center">Details</h1>
+                <ul class="details list-group">
+                    <li class="list-group-item border-0 bg-transparent"><h3>(@Model.Comic.Name</h3></li>
+                    <li class="list-group-item border-0 bg-transparent"><h3><strong>Published :</strong>@Model.Comic.CreatedDate.ToString("dd MMMM yyyy ")</h3></li>
+                    <li class="list-group-item border-0 bg-transparent"><h3><strong>Written By : </strong>Orxan Ibrahimov</h3></li>
+                    <li class="list-group-item border-0 bg-transparent"><h3><strong>Art By : </strong>Orxan Ibrahimov</h3></li>
+                    <li class="list-group-item border-0 bg-transparent"><h3><strong>Price : </strong>$@Model.Comic.Price.ToString("0.00")</h3></li>
+                    <li class="list-group-item border-0 bg-transparent"><h3><strong>Type : </strong>@Model.Comic.Category</h3></li>
+                    <li class="list-group-item border-0 bg-transparent">
+                        <h3>
+                            <strong>Heroes : </strong>
+                            @foreach (var productCharacter in Model.Comic.ProductCharacters)
+                            {
+                                <img src="~/assets/img/character-@productCharacter.Character.Id/@productCharacter.Character.Profile" width="50" height="50" class="rounded-circle" alt="@productCharacter.Character.HeroName" title="@productCharacter.Character.HeroName-@productCharacter.Character.Name" />
+                            }
+
+                        </h3>
+                    </li>
+                    <li class="list-group-item border-0 bg-transparent">
+                        @Html.Raw(Model.Comic.Description)
+                    </li>
+                </ul>
+                <div class="d-none d-lg-block position-absolute top-0 end-0">
+                    <img src="~/assets/img/character-@Model.Comic.ProductCharacters.FirstOrDefault().Character.Id/@Model.Comic.ProductCharacters.FirstOrDefault().Character.FirstImage" style="mix-blend-mode: soft-light;" height="500" alt="deadpool" />
+                </div>
+                <a class="btn btn-success text-center d-lg-block">Add To Cart</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Comics Detail End -->
+<!-- More Than This Series End -->
+<section id="similar">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">More Than This Series</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel owl-theme">
+                    @foreach (var product in Model.Comics)
+                    {
+                        <div class="item">
+                            <div class="similar-comic">
+                                <a href="#" class="similar-comic__body">
+                                    <img src="~/assets/img/product-@product.Id/@product.Image" class="w-100 h-100" alt="volume" />
+                                    <img src="~/assets/img/product-@product.Id/@product.ComicDetail.Backface" class="w-100 h-100" alt="volume" />
+                                </a>
+                                <div class="similar-comic__footer">
+                                    <a href="" class="similar-comic__title my-3">@product.Name</a>
+                                    <a href="" class="similar-comic__btn">Go Detail</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- More Than This Series Start  -->
+<!-- May be You Also Like Start  -->
+<section id="recommendation">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">May be You Also Like</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="recommendation">
+                            <a href="#" class="recommendation__body">
+                                <img src="assets/img/comics/nightwing-rebirth/Nightwing_Rebirth_Vol_1_1_cover.jpg"
+                                     class="w-100 h-100" alt="volume">
+                            </a>
+                            <div class="recommendation__footer w-100 d-flex flex-column">
+                                <a href="">Nightwing Rebirth #2</a>
+                                <a href="">Orxan Ibrahimov</a>
+                                <a href="">Cover</a>
+                                <a href="" class="text-danger">$8.00</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item">
+                        <div class="recommendation">
+                            <a href="#" class="recommendation__body">
+                                <img src="assets/img/comics/spiderman/amazing-spiderman-vol1-cover.jpg"
+                                     class="w-100 h-100" alt="volume">
+                            </a>
+                            <div class="recommendation__footer w-100 d-flex flex-column">
+                                <a href="">Amazing Spiderman #4</a>
+                                <a href="">Orxan Ibrahimov</a>
+                                <a href="">Cover</a>
+                                <a href="" class="text-danger">$8.00</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item">
+                        <div class="recommendation">
+                            <a href="#" class="recommendation__body">
+                                <img src="assets/img/comics/batman-rebirth/batman-rebirth-vol1-cover.jpg"
+                                     class="w-100 h-100" alt="volume">
+                            </a>
+                            <div class="recommendation__footer w-100 d-flex flex-column">
+                                <a href="">Batman Rebirth Vol 3</a>
+                                <a href="">Orxan Ibrahimov</a>
+                                <a href="">Book</a>
+                                <a href="" class="text-danger">$8.00</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item">
+                        <div class="recommendation">
+                            <a href="#" class="recommendation__body">
+                                <img src="assets/img/comics/nightwing-rebirth/Nightwing_Rebirth_Vol_1_1_cover.jpg"
+                                     class="w-100 h-100" alt="volume">
+                            </a>
+                            <div class="recommendation__footer w-100 d-flex flex-column">
+                                <a href="">Nightwing Rebirth #2</a>
+                                <a href="">Orxan Ibrahimov</a>
+                                <a href="">Cover</a>
+                                <a href="" class="text-danger">$8.00</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item">
+                        <div class="recommendation">
+                            <a href="#" class="recommendation__body">
+                                <img src="assets/img/comics/spiderman/amazing-spiderman-vol1-cover.jpg"
+                                     class="w-100 h-100" alt="volume">
+                            </a>
+                            <div class="recommendation__footer w-100 d-flex flex-column">
+                                <a href="">Amazing Spiderman #4</a>
+                                <a href="">Orxan Ibrahimov</a>
+                                <a href="">Cover</a>
+                                <a href="" class="text-danger">$8.00</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item">
+                        <div class="recommendation">
+                            <a href="#" class="recommendation__body">
+                                <img src="assets/img/comics/batman-rebirth/batman-rebirth-vol1-cover.jpg"
+                                     class="w-100 h-100" alt="volume">
+                            </a>
+                            <div class="recommendation__footer w-100 d-flex flex-column">
+                                <a href="">Batman Rebirth Vol 3</a>
+                                <a href="">Orxan Ibrahimov</a>
+                                <a href="">Book</a>
+                                <a href="" class="text-danger">$8.00</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- May be You Also Like End -->

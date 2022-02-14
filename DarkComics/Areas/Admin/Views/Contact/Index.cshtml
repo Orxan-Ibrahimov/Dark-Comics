@@ -1,0 +1,70 @@
+﻿@model PaginationViewModel<Contact>
+
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Contact</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="main-card mb-3 card">
+
+            <div class="d-flex px-5 justify-content-between align-items-center">
+                <h1>Messages</h1>
+                <nav class="" aria-label="Page navigation example">
+                    @Html.Raw(@Model.Getpagination(Url, "Index"))
+                </nav>
+            </div>
+
+            <div class="card-body">
+                <table class="mb-0 table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Send Date</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var message in Model.Products)
+                        {
+                            {
+                                count++;
+                            }
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>@message.Email</td>
+                                <td>@message.Subject</td>
+                                <td>@message.Message</td>
+                                <td>@(message.CreatedDate>DateTime.Now.AddDays(-1)?(message.CreatedDate.ToString("HH:mm")):(message.CreatedDate.ToString("dd MMM")))</td>
+                                <td>
+                                    <a asp-action="Detail" asp-route-id="@message.Id" class="mb-2 mr-2 btn btn-outline-info"><i class="pe-7s-look pe-lg"></i></a>
+                                    <a asp-action="RemoveMessage" asp-route-id="@message.Id" class="mb-2 mr-2 btn btn-outline-danger"><i class="pe-7s-trash pe-lg"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

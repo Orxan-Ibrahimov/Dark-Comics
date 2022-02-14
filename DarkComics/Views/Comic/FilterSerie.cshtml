@@ -1,0 +1,49 @@
+﻿@model PaginationViewModel<Product>
+@{
+    ViewData["Title"] = "FilterSerie";
+}
+
+<!-- Comics Start -->
+<section id="bestComics" class="mt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 position-relative">
+                <span class="heading px-4">Serie Filter</span>
+            </div>
+        </div>
+        <div class="row py-5 my-5">
+            @foreach (var bestComic in Model.Products)
+            {
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="cover my-5">
+                        <div class="comics">
+                            <figure class="front">
+                                <img src="~/assets/img/product-@bestComic.Id/@bestComic.Image" class="w-100 h-100" alt="cover" />
+                            </figure>
+                            <figure class="back">
+                                <img src="~/assets/img/product-@bestComic.Id/@bestComic.ComicDetail.Backface" class="w-100 h-100" alt="backface" />
+                            </figure>
+                        </div>
+                        <div class="cover__info text-white px-3">
+                            <h5>@bestComic.Name</h5>
+                            <p><strong>Type : </strong>@bestComic.Category.ToString()</p>
+                            <p><strong>Price : </strong>@bestComic.Price.ToString(".00")</p>
+                            <p><strong>Art By : </strong>Orxan Ibra</p>
+                            <p><strong>Written By : </strong>Orxan Ibra</p>
+                            <p><strong>Page Count : </strong>@bestComic.ComicDetail.PageCount</p>
+                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@bestComic.Id" class="cover__btn">Go Detail</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row my-5">
+            <div class="col-12">
+                <nav class="" aria-label="Page navigation example">
+                    @Html.Raw(@Model.Getpagination(Url, "FilterSerie"))
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Comics End -->

@@ -1,0 +1,122 @@
+section#recommendation,
+section#LastPost {
+    .item {
+        transition: all .3s linear;
+
+        .recommendation {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // border-radius: 4px;
+
+            &__body {
+                // width: 250px;
+                width: 100%;
+                height: 400px;
+                position: relative;
+                overflow: hidden;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    height: 100%;
+                    width: 0;
+                    background-color: #45f3ff;
+                    opacity: 0.4;
+                }
+
+                img {
+                    transition: all 0.4s linear;
+                }
+
+                &:hover {
+
+                    img{
+                        transform: scale(1.1);
+                    }
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &__footer {
+                a {
+                    color: #000;
+                    transition: all 0.4s linear;
+                    font-size: 20px;
+                    text-align: center;
+                    &:hover {
+                        text-decoration: underline;
+                        color: #45f3ff;
+                    }
+                }
+            }           
+        }
+       
+    }  
+}
+
+section#similar {
+    .item {
+        .similar-comic {
+            // width: 300px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &__body {
+                width: 100%;
+                height: 400px;
+                position: relative;
+                overflow: hidden;
+                display: block;
+
+                &:hover {
+                    img {
+                        transition: all 0.4s linear;
+                    }
+                    img:nth-child(1) {
+                        opacity: 0 !important;
+                    }
+                    img:nth-child(2) {
+                        opacity: 1 !important;
+                    }
+                }
+            }
+
+            &__btn {
+                @extend %button;
+            }
+            &__title {
+                text-align: center;
+                display: block;
+                color: #000;
+                transition: all 0.4s linear;
+
+                &:hover {
+                    color: #45f3ff;
+                    transform: scale(1.2);
+                }
+            }
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all 0.4s linear;
+            }
+            img:nth-child(1) {
+                opacity: 1 !important;
+            }
+            img:nth-child(2) {
+                opacity: 0 !important;
+            }
+        }
+    }
+}

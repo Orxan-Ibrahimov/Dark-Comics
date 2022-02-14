@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::selection{
+background-color: white;
+color: black;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+section{
+    margin: 300px 0;
+}
+
+section#fact{
+    background-color: #c7ecee;
+}
+
+:root{
+    --green:#27ae60;
+    --dark-color:#219150;
+    --black:#444;
+    --light-color:#666;
+    --border:.1rem solid rgba(0,0,0,.1);
+    --border-hover:.1rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}

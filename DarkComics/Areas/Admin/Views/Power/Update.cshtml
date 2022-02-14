@@ -1,0 +1,36 @@
+﻿@model PowerViewModel
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Edit the City</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <form enctype="multipart/form-data" class="needs-validation" novalidate="" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="Power.Id" />
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Power.Name"></label>
+                    <input asp-for="Power.Name" class="form-control" placeholder="Super Power" required>
+                    <span asp-validation-for="Power.Name"></span>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Add</button>
+        </form>
+    </div>
+</div>

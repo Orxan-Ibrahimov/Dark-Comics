@@ -1,0 +1,103 @@
+﻿@model SaleViewModel
+@{
+    ViewData["Title"] = "Detail";
+    int count = 0;
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Sale Detail</h1>
+                <div class="page-title-subheading">
+                    Wide selection of buttons that feature different styles for backgrounds, borders and hover options!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 m-3">
+        <h1 class="text-center">Client's Datas</h1>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Client's Name :</strong> <i>@Model.Sale.Client</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Client's Email :</strong> <i>@Model.Sale.Email</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Client's Home Number :</strong> <i>@Model.Sale.Home</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Client's Mobile :</strong> <i>@Model.Sale.Mobile</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Client's Adress :</strong> <i>@Model.Sale.Address</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Sale Description :</strong> <i>@Model.Sale.Description</i></h2>
+    </div>
+    </div>
+<div class="row">
+    <div class="col-12 m-3">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Sale Datas</h5>
+                <table class="mb-0 table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>SaleItem</th>
+                            <th>Price</th>
+                            <th>Page Count</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var saleItem in Model.Sale.SaleItems)
+                        {
+                            {
+                                count++;
+                            }
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td>
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-3">
+                                                <div class="widget-content-left">
+                                                    <img width="50" height="50" class="rounded-circle" src="~/assets/img/product-@saleItem.Id/@saleItem.Product.Image" alt="@saleItem.Product.Name" />
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left flex2">
+                                                <div class="widget-heading">@saleItem.Product.Name</div>
+                                                <div class="widget-subheading opacity-7">@saleItem.Product.ComicDetail.Serie.Name</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>$@saleItem.Price</td>
+                                <td>@saleItem.Product.ComicDetail.PageCount</td>
+                                <td>@((saleItem.Product.ComicDetail.Serie.IsTeam)?"Team":"Personal")</td>
+                                <td>@saleItem.Count</td>
+                                <td>@saleItem.Product.Category</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Total Price :</strong> <i>$@String.Format("{0:0.##}", Model.Sale.SaleItems.Sum(si => si.Price * si.Count))</i></h2>
+    </div>
+</div>
+  

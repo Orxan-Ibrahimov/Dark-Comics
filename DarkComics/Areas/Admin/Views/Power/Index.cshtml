@@ -1,0 +1,61 @@
+﻿@model PowerViewModel
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Super Powers</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="mb-0 table table-dark table-hover table-hover-flip">
+            <thead>
+                <tr>
+                    <th><h3>#</h3></th>
+                    <th><h3>Power</h3></th>
+                    <th><h3>Created Date</h3></th>
+                    <th>
+                        <h3 class="text-center">
+                            <a asp-action="Create" class="mb-2 mr-2 btn btn-outline-success"><i class="pe-7s-news-paper pe-lg"></i></a>
+                        </h3>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var power in Model.Powers)
+                {
+                    {
+                        count++;
+                    }
+                <tr>
+                    <td scope="row">@count</td>
+                    <td>@power.Name</td>
+                    <td>@(power.CreatedDate>DateTime.Now.AddDays(-1)?(power.CreatedDate.ToString("HH:mm")):(power.CreatedDate.ToString("dd MMM")))</td>
+                    <td class="text-center">
+                        <a asp-action="Update" asp-route-id="@power.Id" class="mb-2 mr-2 btn btn-outline-warning"><i class="pe-7s-pen pe-lg"></i></a>
+                        @if (User.IsInRole(Role.SuperAdmin.ToString()))
+                        {
+                            <a asp-action="MakeActiveOrDeactive" asp-route-id="@power.Id" class="mb-2 mr-2 btn @(power.IsActive?"btn-outline-danger":"btn-outline-success")"><i class="pe-lg @(power.IsActive?"pe-7s-delete-user":"pe-7s-refresh")"> </i></a>
+                        }
+                    </td>
+
+
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

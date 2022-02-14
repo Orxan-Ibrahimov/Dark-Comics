@@ -1,0 +1,51 @@
+header{
+    background-color: #000;
+    .bg-neon{
+        background-color: #45f3ff;
+    }
+
+    .comics-types {
+        height: 100%;
+        align-items: center;
+    
+        & img {
+            transition: transform 0.4s linear;
+            &:hover {
+                transform: scale(1.2);
+            }
+            
+        }
+    }
+    
+    .menu-text{
+        @extend %button;
+        text-transform: uppercase;
+        color: #000;
+        font-size: 20px;
+    
+        & > i{
+            margin: 0 .5rem;
+        }  
+    }
+
+    .icons{
+
+        #login-btn,a.fas{
+            font-size: 2rem;
+            margin-left: 1.5rem;
+            color:white;
+            cursor: pointer;
+
+            &:hover{
+                color:#45f3ff;  
+            }
+        }
+    }
+}
+
+.sticky{
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 100;
+}

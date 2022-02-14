@@ -1,0 +1,26 @@
+﻿@model BasketViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="basket-items">
+                    <partial name="_Basket" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <a asp-action="Order" class="btn btn-outline-success">Next</a>
+            </div>
+        </div>
+    </div>
+</section>

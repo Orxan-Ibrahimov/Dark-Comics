@@ -1,0 +1,49 @@
+﻿@model CharacterViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- Character carousel Start -->
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="owl-carousel owl-theme">
+                @foreach (var character in Model.Characters)
+                {
+                    <a  asp-action="Details" asp-route-id="@character.Id" class="item">
+                        <div class="character-card">
+                            <div class="character-card__body">
+                                <img src="~/assets/img/character-@character.Id/@character.FirstImage" class="w-100 h-100" alt="cover" />
+                                <img src="~/assets/img/character-@character.Id/@character.SecondImage" class="w-100 h-100" alt="backface" />
+                            </div>
+                            <div class="character-card__footer">
+                                <img src="~/assets/img/character-@character.Id/@character.Logo" width="75" height="75" alt="backface" />
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Character carousel End -->
+
+<!-- Character Filter Start -->
+<section id="current" class="m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <span class="heading">Character Filter</span>
+            </div>
+        </div>
+        <div class="row" id="addHere">
+            @*<partial name="_LoadCharacters" />*@
+        </div>
+        <div class="row my-5">
+            <div class="col-12">
+                <span class="btn btn-success" id="loadCharacters">Load More</span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Character Filter End -->

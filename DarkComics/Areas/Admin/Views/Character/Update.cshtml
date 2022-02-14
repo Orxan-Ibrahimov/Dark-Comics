@@ -1,0 +1,220 @@
+﻿@model CharacterViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Add a Character</h1>
+                <div class="page-title-subheading">
+                    Wide selection of buttons that feature different styles for backgrounds, borders and hover options!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <h5 class="card-title">Bootstrap 4 Form Validation</h5>
+        <form enctype="multipart/form-data" class="needs-validation" novalidate="" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input asp-for="Character.Id" type="hidden" />
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Character.Name"></label>
+                    <input asp-for="Character.Name" class="form-control" placeholder="First name" required>
+                    <span asp-validation-for="Character.Name"></span>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Character.HeroName"></label>
+                    <input asp-for="Character.HeroName" class="form-control" placeholder="First name" required>
+                    <span asp-validation-for="Character.HeroName"></span>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Character.NickName"></label>
+                    <input asp-for="Character.NickName" class="form-control" placeholder="First name" required>
+                    <span asp-validation-for="Character.NickName"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Character.FirstAppearance"></label>
+                    <input asp-for="Character.FirstAppearance" class="form-control" placeholder="First name" required>
+                    <span asp-validation-for="Character.FirstAppearance"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Character.Creator"></label>
+                    <input asp-for="Character.Creator" class="form-control" placeholder="First name" required>
+                    <span asp-validation-for="Character.Creator"></span>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <label asp-for="Character.Fighting"></label>
+                    <input asp-for="Character.Fighting" class="form-control" required>
+                    <span asp-validation-for="Character.Fighting"></span>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <label asp-for="Character.Durability"></label>
+                    <input asp-for="Character.Durability" class="form-control" required>
+                    <span asp-validation-for="Character.Durability"></span>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <label asp-for="Character.Energy"></label>
+                    <input asp-for="Character.Energy" class="form-control" required>
+                    <span asp-validation-for="Character.Energy"></span>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <label asp-for="Character.Speed"></label>
+                    <input asp-for="Character.Speed" class="form-control" required>
+                    <span asp-validation-for="Character.Speed"></span>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <label asp-for="Character.Strength"></label>
+                    <input asp-for="Character.Strength" class="form-control" required>
+                    <span asp-validation-for="Character.Strength"></span>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <label asp-for="Character.Intelligence"></label>
+                    <input asp-for="Character.Intelligence" class="form-control" required>
+                    <span asp-validation-for="Character.Intelligence"></span>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Character.ProfilePhoto">Profile</label>
+                    <img src="~/assets/img/character-@Model.Character.Id/@Model.Character.Profile" width="300" />
+                    <input asp-for="Character.ProfilePhoto" class="form-control" accept="image/*" />
+                    <span asp-validation-for="Character.ProfilePhoto"></span>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Character.FirstPhoto"></label>
+                    <img src="~/assets/img/character-@Model.Character.Id/@Model.Character.FirstImage" width="300" />
+                    <input asp-for="Character.FirstPhoto" accept="image/*" class="form-control" />
+                    <span asp-validation-for="Character.FirstPhoto"></span>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Character.SecondPhoto">Image</label>
+                    <img src="~/assets/img/character-@Model.Character.Id/@Model.Character.SecondImage" width="300" />
+                    <input asp-for="Character.SecondPhoto" accept="image/*" class="form-control" />
+                    <span asp-validation-for="Character.SecondPhoto"></span>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Character.LayoutPhoto">Layout</label>
+                    <img src="~/assets/img/character-@Model.Character.Id/@Model.Character.LayoutImage" width="300" />
+                    <input asp-for="Character.LayoutPhoto" accept="image/*" class="form-control" />
+                    <span asp-validation-for="Character.LayoutPhoto"></span>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Character.HairStyle">Hair</label>
+                    <input asp-for="Character.HairStyle" class="form-control" required>
+                    <span asp-validation-for="Character.HairStyle"></span>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Character.EyeColor">Eyes</label>
+                    <input asp-for="Character.EyeColor" class="form-control" required>
+                    <span asp-validation-for="Character.EyeColor"></span>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <label asp-for="Character.Weight">Weight</label>
+                    <input asp-for="Character.Weight" class="form-control" required>
+                    <span asp-validation-for="Character.Weight"></span>
+                </div>
+
+                <div class="col-md-2 mb-3">
+                    <label asp-for="Character.Height">Height</label>
+                    <input asp-for="Character.Height" class="form-control" required>
+                    <span asp-validation-for="Character.Height"></span>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Character.LogoPhoto">Logo</label>
+                    <img src="~/assets/img/character-@Model.Character.Id/@Model.Logo" width="300" />
+                    <input asp-for="Character.LogoPhoto" class="form-control" accept="image/*" />
+                    <span asp-validation-for="Character.LogoPhoto"></span>
+                </div>
+
+                <div class="col-md-7 mb-3">
+                    <label asp-for="Character.Education">Education</label>
+                    <input asp-for="Character.Education" class="form-control" required />
+                    <span asp-validation-for="Character.Education"></span>
+                </div>
+                <a href="C:\Users\ASUS\Desktop\Dark Comics Project - Copy\DarkComics\DarkComics\Areas\Admin\Views\Character\Update.cshtml">C:\Users\ASUS\Desktop\Dark Comics Project - Copy\DarkComics\DarkComics\Areas\Admin\Views\Character\Update.cshtml</a>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ChosenPowers"></label>
+                    <select asp-for="ChosenPowers" asp-items="@Model.PowerList" class="form-control" multiple>
+                    </select>
+                    <span asp-validation-for="ChosenPowers"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Character.CityId"></label>
+                    <select asp-for="Character.CityId" asp-items="@Model.CitiesList" class="form-control">
+                    </select>
+                    <span asp-validation-for="Character.CityId"></span>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label asp-for="Character.AboutCharacter"></label>
+                    <textarea asp-for="Character.AboutCharacter" class="form-control" placeholder="First name"></textarea>
+                    <span asp-validation-for="Character.AboutCharacter"></span>
+                </div>
+            </div>
+
+            <div class="col-12 mb-3">
+                <label asp-for="Character.ShortDescription">Short Description</label>
+                <div class="toolbar-container"></div>
+                <textarea asp-for="Character.ShortDescription" class="form-control" placeholder="First name"></textarea>
+                <span asp-validation-for="Character.ShortDescription"></span>
+            </div>
+
+            <button class="btn btn-primary" asp-route-logo="@Model.Logo" asp-route-profile="@Model.Profile" asp-route-firstimage="@Model.FirstImage" asp-route-SecondImage="@Model.SecondImage" asp-route-LayoutImage="@Model.LayoutImage" type="submit">Submit form</button>
+        </form>
+    </div>
+</div>
+
+@section summernoteStyle{
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+}
+
+@section summernote{
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Character_AboutCharacter').summernote({
+                placeholder: 'Hello stand alone ui',
+                height: 250,                
+            });
+            $('#Character_ShortDescription').summernote({
+                placeholder: 'Hello stand alone ui',
+                height: 250,
+            });
+        })
+    </script>
+}

@@ -1,0 +1,155 @@
+﻿@model ComicViewModel
+@{
+    ViewData["Title"] = "UpdateComic";
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Edit the Comic</h1>
+                <div class="page-title-subheading">
+                    <a href="C:\Users\ASUS\Desktop\Dark Comics Project - Copy\DarkComics\DarkComics\Areas\Admin\Views\Comic\UpdateComic.cshtml">C:\Users\ASUS\Desktop\Dark Comics Project - Copy\DarkComics\DarkComics\Areas\Admin\Views\Comic\UpdateComic.cshtml</a>
+                    Wide selection of buttons that feature different styles for backgrounds, borders and hover options!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <h5 class="card-title">Bootstrap 4 Form Validation</h5>
+        <form enctype="multipart/form-data" class="needs-validation" novalidate="" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="Comic.Id" />
+            <input type="hidden" asp-for="Comic.ComicDetail.Id" />
+
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Comic.Name"></label>
+                    <input asp-for="Comic.Name" class="form-control" placeholder="First name" required>
+                    <span asp-validation-for="Comic.Name"></span>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Comic.Price"></label>
+                    <input asp-for="Comic.Price" class="form-control" placeholder="First name" required>
+                    <span asp-validation-for="Comic.Price"></span>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Comic.ComicDetail.IsCover">Team</label>
+                    <select asp-for="Comic.ComicDetail.IsCover" class="form-control">
+                        <option value="true">Cover</option>
+                        <option value="false">Book</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Comic.Quantity"></label>
+                    <input asp-for="Comic.Quantity" class="form-control" required>
+                    <span asp-validation-for="Comic.Quantity"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Comic.ComicDetail.PageCount">Page Count</label>
+                    <input asp-for="Comic.ComicDetail.PageCount" class="form-control" required>
+                    <span asp-validation-for="Comic.ComicDetail.PageCount"></span>
+                </div>
+
+                @*<div class="col-md-6 mb-3">
+                        <label>Serie</label>
+                        <select class="form-control" disabled>
+                            <option value="@Model.Serie.Id">@Model.Serie.Name</option>
+                        </select>
+                    </div>*@
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Comic.Photo"></label>
+                    <input asp-for="Comic.Photo" class="form-control" accept="image/*" />
+                    <img src="~/assets/img/product-@Model.Comic.Id/@Model.Cover" width="200" height="200" />
+                    <span asp-validation-for="Comic.Photo"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ChosenCharacters"></label>
+                    <select asp-for="ChosenCharacters" asp-items="@Model.CharacterList" class="form-control" multiple>
+                    </select>
+                    <span asp-validation-for="ChosenCharacters"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Comic.ComicDetail.SerieId">Serie</label>                   
+                    <select class="form-control">
+                        <option value="@Model.Serie.Id">@Model.Serie.Name</option>
+                    </select>
+                    <span asp-validation-for="Comic.ComicDetail.SerieId"></span>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label asp-for="Comic.ComicDetail.BackfacePhoto">BackFace Image</label>
+                    <input asp-for="Comic.ComicDetail.BackfacePhoto" class="form-control" accept="image/*">
+                    <img src="~/assets/img/product-@Model.Comic.Id/@Model.Backface" width="200" height="200" />
+                    <span asp-validation-for="Comic.ComicDetail.BackfacePhoto"></span>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label asp-for="Comic.Description">Description</label>
+                    <div class="toolbar-container"></div>
+                    <textarea asp-for="Comic.Description" class="form-control" placeholder="Type Comic Details"></textarea>
+                    <span asp-validation-for="Comic.Description"></span>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label asp-for="Comic.MailHeading">Mail's Heading</label>
+                    <div class="toolbar-container"></div>
+                    <input asp-for="Comic.MailHeading" placeholder="Type Heading for Subscribers" class="form-control" required />
+                    <span asp-validation-for="Comic.MailHeading"></span>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label asp-for="Comic.MailMessage"> Mail Message</label>
+                    <div class="toolbar-container"></div>
+                    <textarea asp-for="Comic.MailMessage" class="form-control"></textarea>
+                    <span asp-validation-for="Comic.MailMessage"></span>
+
+                </div>
+            </div>
+
+            <button asp-route-cover="@Model.Cover" asp-route-backface="@Model.Backface" class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+    </div>
+</div>
+
+@section summernoteStyle{
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+}
+
+@section summernote{
+
+    <!-- include libraries(jQuery, bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <a href="C:\Users\ASUS\Desktop\Dark Comics Project - Copy\DarkComics\DarkComics\Areas\Admin\Views\Comic\UpdateComic.cshtml">C:\Users\ASUS\Desktop\Dark Comics Project - Copy\DarkComics\DarkComics\Areas\Admin\Views\Comic\UpdateComic.cshtml</a>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Comic_Description').summernote({
+                placeholder: 'Hello stand alone ui',
+                height: 250,
+            });
+            $('#Comic_MailMessage').summernote({
+                placeholder: 'Hello stand alone ui',
+                height: 250,
+            });
+        });
+    </script>
+}

@@ -1,0 +1,50 @@
+﻿@model AdminLoginViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Register";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Register start -->
+<div class="register-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>Log in</h2>
+                            <span>Please login using account detail bellow.</span>
+                        </div>
+                        <div class="login-form">
+                            <form method="post">
+                                <div asp-validation-summary="ModelOnly" class="alert text-danger"></div>
+                                
+                                <div class="form-group my-4">
+                                    <input asp-for="Username" class="form-control my-2" placeholder="UserName" required>
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+                              
+                                <div class="form-group my-4">
+                                    <input asp-for="Password" class="form-control my-2" placeholder="Password" required>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary submit-btn btn-block">Log in</button>
+                                </div>
+                                <div class="text-block text-center my-4">
+                                    <span class="text-small font-weight-semibold">If you haven't an account</span>
+                                    <a asp-action="Register" class="text-black text-small">Sign Up</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>>
+<!-- Register end -->

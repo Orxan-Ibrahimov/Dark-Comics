@@ -1,0 +1,67 @@
+footer {
+    background-color: $bg-navy;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .social-networks {
+            padding: 30px 0;
+            nav {
+                ul.social-list {
+                    display: flex;
+                    li {
+                        padding: 0 10px;
+                        a {
+                            width: 35px;
+                            height: 35px;
+                            border-radius: 20%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: $bg-green;
+                            color: $bg-gray;
+                            transition: all 0.2s linear;
+                        }
+                        a:hover {
+                            background-color: $bg-gray;
+                            color: $bg-green;
+                            transform: scale(1.2);
+                            box-shadow: 0 0 20px 2px $bg-green;
+                        }
+                    }
+                }
+            }
+            p {
+                text-align: center;
+                color: $bg-white;
+            }
+        }
+        ul {
+            padding: 25px;
+            h3 {
+                color: $bg-green;
+                margin-bottom: 20px;
+            }
+            li {
+                margin: 10px 0;
+                a {
+                    color: $bg-white;
+                    font-size: 20px;
+                    transition: all 0.2s linear;
+                    display: flex;
+                    padding: 5px 15px;
+                }
+                a:hover {
+                    background-color: $bg-white;
+                    color: $bg-navy;
+                    // color: $bg-green;
+                    transform: scale(1.2);
+                    box-shadow: 0 0 20px 10px $bg-green;
+                    border-radius: 50rem;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

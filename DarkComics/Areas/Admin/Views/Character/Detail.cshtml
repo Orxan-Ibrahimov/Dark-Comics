@@ -1,0 +1,99 @@
+﻿@model CharacterViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Comic Characters</h1>
+                <div class="page-title-subheading">
+                    Wide selection of buttons that feature different styles for backgrounds, borders and hover options!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12 m-3">
+        <h1 class="text-center">@Model.Character.Name - @Model.Character.HeroName</h1>
+    </div>
+    <div class="col-12 mx-3 my-5  d-flex justify-content-center">
+        <img src="~/assets/img/character-@Model.Character.Id/@Model.Character.Profile" width="250" height="250" class="rounded-circle" />
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Nickname :</strong> <i>@Model.Character.NickName</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Creator :</strong> <i>@Model.Character.Creator</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>First Appearance :</strong> <i>@Model.Character.FirstAppearance</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Weight :</strong> <i>@Model.Character.Weight</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Height :</strong> <i>@Model.Character.Height</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Eyes :</strong> <i>@Model.Character.EyeColor</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Hair :</strong> <i>@Model.Character.HairStyle</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Educaion :</strong> <i>@Model.Character.Education</i></h2>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>City :</strong> <i>@Model.Character.City.Name</i></h2>
+    </div>
+    @*<div class="col-12 m-3">
+        <h2><strong>Description :</strong> </i></h2>
+    </div>*@
+    <div class="row">
+        <div class="col-12 m-3">
+            <h1 class="fw-bold">Description :</h1>
+        </div>
+        <div class="col-12">
+            <i>@Html.Raw(Model.Character.AboutCharacter.ToString())</i>
+        </div>
+    </div>
+    <div class="col-12 m-3">
+        <h2><strong>Status :</strong> <i>@(Model.Character.IsActive?"Active":"DeActive")</i></h2>
+    </div>
+
+    <div class="col-lg-6 m-3">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Character's Super Power List</h5>
+                <table class="mb-0 table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Super Power</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Character.CharacterPowers.Count(); i++)
+                        {
+                            <tr>
+                                <th scope="row">@(i + 1)</th>
+                                <td>@Model.Character.CharacterPowers[i].Power.Name</td>
+                                <td><a asp-action="DeletePower" asp-route-id="@Model.Character.CharacterPowers[i].Id" class="mb-2 mr-2 btn btn-outline-danger"><i class="pe-lg pe-7s-trash"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model AdminRegisterViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Register";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Register start -->
+<div class="register-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>sign up</h2>
+                            <span>Please login using account detail bellow.</span>
+                        </div>
+                        <div class="login-form">
+                            <form method="post">
+                                <div asp-validation-summary="ModelOnly" class="alert text-danger"></div>
+                                <div class="form-group my-4">
+                                    <input asp-for="FullName" class="form-control my-2" placeholder="FullName" required>
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group my-4">
+                                    <input asp-for="Username" class="form-control my-2" placeholder="UserName" required>
+                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                </div>
+                                <div class="form-group my-4">
+                                    <input asp-for="Email" class="form-control my-2" placeholder="Email" required>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group my-4">
+                                    <input asp-for="Password" class="form-control my-2" placeholder="Password" required>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group my-4">
+                                    <input asp-for="ConfirmPassword" class="form-control my-2" placeholder="Confirm Password" required>
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                                <div class="form-group my-4">
+                                    <select class="form-control" asp-for="Role" asp-items="@(new SelectList(Model.Roles,"Name","Name"))">
+                                    </select>
+                                    <span asp-validation-for="Role"></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary submit-btn btn-block">Register</button>
+                                </div>
+                                <div class="text-block text-center my-4">
+                                    <span class="text-small font-weight-semibold">Already have and account ?</span>
+                                    <a asp-action="Login" class="text-black text-small">Login</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>>
+<!-- Register end -->

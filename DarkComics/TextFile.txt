@@ -1,0 +1,131 @@
+﻿<section>
+    <div class="container">
+        <div class="ro my-5">
+            <div class="col-12">
+                <h1 class="text-center">Books</h1>
+            </div>
+        </div>
+        <div class="row py-5">
+            @foreach (var book in Model.Books)
+            {
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="cover my-5">
+                        <div class="comics">
+                            <figure class="comics__front">
+                                <img src="assets/img/comics/batman-rebirth/batman-rebirth-vol1-cover.jpg"
+                                     class="w-100 h-100" alt="cover" />
+                            </figure>
+                            <figure class="comics__back">
+                                <img src="assets/img/comics/batman-rebirth/batman-rebirth-vol1-backface.jpg"
+                                     class="w-100 h-100" alt="backface" />
+                            </figure>
+                        </div>
+                        <div class="cover__info text-white px-3">
+                            <h5>Batman Rebirth #1</h5>
+                            <p><strong>Type : </strong>Book</p>
+                            <p><strong>Price : </strong>$5</p>
+                            <p><strong>Art By : </strong>Orxan Ibra</p>
+                            <p><strong>Written By : </strong>Orxan Ibra</p>
+                            <p><strong>Page Count : </strong>13</p>
+                            <p><strong>Category : </strong>Batman</p>
+                            <p><strong>Sub - Category : </strong>Rebirth</p>
+                            <a href="detail.html" class="cover__btn">Go Detail</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>
+ Comics Books End
+  One-Shot Comics Start
+<section id="one-shot">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center"> One-Shot Comics</h1>
+            </div>
+        </div>
+        <div class="row py-5">
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="cover my-5">
+                    <div class="comics">
+                        <figure class="comics__front">
+                            <img src="assets/img/comics/batman-rebirth/batman-rebirth-vol1-cover.jpg"
+                                 class="w-100 h-100" alt="cover" />
+                        </figure>
+                        <figure class="comics__back">
+                            <img src="assets/img/comics/batman-rebirth/batman-rebirth-vol1-backface.jpg"
+                                 class="w-100 h-100" alt="backface" />
+                        </figure>
+                    </div>
+                    <div class="cover__info text-white px-3">
+                        <h5>Batman Rebirth Vol 1 #1</h5>
+                        <p><strong>Type : </strong>Single Cover</p>
+                        <p><strong>Price : </strong>$5</p>
+                        <p><strong>Art By : </strong>Orxan Ibra</p>
+                        <p><strong>Written By : </strong>Orxan Ibra</p>
+                        <p><strong>Page Count : </strong>13</p>
+                        <p><strong>Category : </strong>Batman</p>
+                        <p><strong>Sub - Category : </strong>Rebirth</p>
+                        <a href="detail.html" class="cover__btn">Go Detail</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="cover my-5">
+                    <div class="comics">
+                        <figure class="comics__front">
+                            <img src="assets/img/comics/spiderman/spiderman-vol1-cover.jpg" class="w-100 h-100"
+                                 alt="cover" />
+                        </figure>
+                        <figure class="comics__back">
+                            <img src="assets/img/comics/spiderman/spiderman-vol1-backfacejpg.jpg"
+                                 class="w-100 h-100" alt="backface" />
+                        </figure>
+                    </div>
+                    <div class="cover__info text-white px-3">
+                        <h5>Batman Rebirth Vol 1 #1</h5>
+                        <p><strong>Type : </strong>Single Cover</p>
+                        <p><strong>Price : </strong>$5</p>
+                        <p><strong>Art By : </strong>Orxan Ibra</p>
+                        <p><strong>Written By : </strong>Orxan Ibra</p>
+                        <p><strong>Page Count : </strong>13</p>
+                        <p><strong>Category : </strong>Batman</p>
+                        <p><strong>Sub - Category : </strong>Rebirth</p>
+                        <a href="detail.html" class="cover__btn">Go Detail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 offset-md-3 offset-xl-0 col-xl-4">
+                <div class="cover my-5">
+                    <div class="comics">
+                        <figure class="comics__front">
+                            <img src="assets/img/comics/nightwing-rebirth/Nightwing_Rebirth_Vol_1_1_cover.jpg"
+                                 class="w-100 h-100" alt="cover" />
+                        </figure>
+                        <figure class="comics__back">
+                            <img src="assets/img/comics/nightwing-rebirth/Nightwing_Rebirth_Vol_1_1_backface.jpg"
+                                 class="w-100 h-100" alt="backface" />
+                        </figure>
+                    </div>
+                    <div class="cover__info text-white px-3">
+                        <h5>Batman Rebirth Vol 1 #1</h5>
+                        <p><strong>Type : </strong>Book</p>
+                        <p><strong>Price : </strong>$5</p>
+                        <p><strong>Art By : </strong>Orxan Ibra</p>
+                        <p><strong>Written By : </strong>Orxan Ibra</p>
+                        <p><strong>Page Count : </strong>13</p>
+                        <p><strong>Category : </strong>Batman</p>
+                        <p><strong>Sub - Category : </strong>Rebirth</p>
+                        <a href="detail.html" class="cover__btn">Go Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+  One-Shot Comics End 

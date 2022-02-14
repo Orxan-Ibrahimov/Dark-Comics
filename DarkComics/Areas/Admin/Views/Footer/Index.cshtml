@@ -1,0 +1,66 @@
+﻿@model FooterViewModel
+@{
+    ViewData["Title"] = "Social";
+    int count = 0;
+}
+
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Footer</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="mb-0 table table-dark table-hover table-hover-flip">
+            <thead>
+                <tr>
+                    <th><h3>#</h3></th>
+                    <th><h3>Address</h3></th>
+                    <th><h3>Email</h3></th>
+                    <th><h3>Phone</h3></th>
+                    <th>
+
+                        @if (Model.Footers.Count() == 0)
+                        {
+                            <h3>
+                                <a asp-action="Create" class="mb-2 mr-2 btn btn-outline-success"><i class="pe-7s-news-paper pe-lg"></i></a>
+                            </h3>
+                        }
+                        else
+                        {
+                            <h3>Operations</h3>
+                        }
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var footer in Model.Footers)
+                {
+                    {
+                        count++;
+                    }
+                <tr>
+                    <td scope="row">@count</td>
+                    <td>@footer.Address</td>
+                    <td>@footer.Email</td>
+                    <td>@footer.Phone</td>
+                    <td class="text-center">
+                        <a asp-action="Update" asp-route-id="@footer.Id" class="mb-2 mr-2 btn btn-outline-warning"><i class="pe-7s-pen pe-lg"></i></a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
