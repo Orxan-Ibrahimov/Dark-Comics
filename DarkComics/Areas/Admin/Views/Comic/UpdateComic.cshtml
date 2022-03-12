@@ -84,9 +84,11 @@
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <label asp-for="Comic.ComicDetail.SerieId">Serie</label>                   
-                    <select class="form-control">
-                        <option value="@Model.Serie.Id">@Model.Serie.Name</option>
+                    <label asp-for="Comic.ComicDetail.SerieId">Serie</label>
+                    @*<select class="form-control">
+            <option value="@Model.Serie.Id">@Model.Serie.Name</option>
+        </select>*@
+                    <select asp-for="Comic.ComicDetail.SerieId" asp-items="@Model.SerieList" class="form-control">
                     </select>
                     <span asp-validation-for="Comic.ComicDetail.SerieId"></span>
                 </div>

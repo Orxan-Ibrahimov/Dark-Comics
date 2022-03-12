@@ -59,13 +59,13 @@
                     {
                         <div class="item">
                             <div class="similar-comic">
-                                <a href="#" class="similar-comic__body">
+                                <a asp-controller="Comic" asp-action="Detail" asp-route-id="@product.Id" class="similar-comic__body">
                                     <img src="~/assets/img/product-@product.Id/@product.Image" class="w-100 h-100" alt="volume" />
                                     <img src="~/assets/img/product-@product.Id/@product.ComicDetail.Backface" class="w-100 h-100" alt="volume" />
                                 </a>
                                 <div class="similar-comic__footer">
-                                    <a href="" class="similar-comic__title my-3">@product.Name</a>
-                                    <a href="" class="similar-comic__btn">Go Detail</a>
+                                    <a asp-controller="Comic" asp-action="Detail" asp-route-id="@product.Id" class="similar-comic__title my-3">@product.Name</a>
+                                    <a asp-controller="Comic" asp-action="Detail" asp-route-id="@product.Id" class="similar-comic__btn">Go Detail</a>
                                 </div>
                             </div>
 
@@ -101,7 +101,6 @@
                                 <a href="" class="text-danger">$8.00</a>
                             </div>
                         </div>
-
                     </div>
                     <div class="item">
                         <div class="recommendation">

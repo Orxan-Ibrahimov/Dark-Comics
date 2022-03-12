@@ -67,7 +67,7 @@ namespace DarkComics.Controllers
             }
 
             Character character = _context.Characters.Include(c => c.ToyCharacters).ThenInclude(tc => tc.Toy).Include(c => c.CharacterPowers).
-                ThenInclude(cp => cp.Power).Include(c => c.City).Include(c => c.ProductCharacters).ThenInclude(pc => pc.Product).
+                ThenInclude(cp => cp.Power).Include(c => c.City).Include(c => c.ProductCharacters).ThenInclude(pc => pc.Product).ThenInclude(cd=>cd.ComicDetail).
                 Include(c => c.CharacterNews).ThenInclude(cn => cn.News).FirstOrDefault(c => c.Id == id);
            
             var products = character.ProductCharacters.OrderByDescending(p => p.ProductId).ToList();
