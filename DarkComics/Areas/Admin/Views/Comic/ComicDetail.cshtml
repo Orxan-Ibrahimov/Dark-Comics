@@ -47,6 +47,9 @@
         <h2><strong>Serie :</strong> <i>@Model.Comic.ComicDetail.Serie.Name</i></h2>
     </div>
     <div class="col-12 m-3">
+        <h2><strong>Add Reading :</strong> <a class="btn btn-outline-primary" asp-controller="Comic" asp-action="ReadingComics" asp-route-id="@Model.Comic.Id">Add</a></h2>
+    </div>
+    <div class="col-12 m-3">
         <h2><strong>PageCount :</strong> <i>@Model.Comic.ComicDetail.PageCount</i></h2>
     </div>
     <div class="col-12 m-3">
@@ -54,8 +57,7 @@
             <strong>Characters :</strong>
             @foreach (var character in Model.Comic.ProductCharacters)
             {
-                <img width="50" height="50" class="rounded-circle" src="~/assets/img/character-@character.Character.Id/@character.Character.Profile" alt="@character.Character.Name" />
-            }
+<img width="50" height="50" class="rounded-circle" src="~/assets/img/character-@character.Character.Id/@character.Character.Profile" alt="@character.Character.Name" />            }
         </h2>
     </div>
     <div class="col-12 m-3">

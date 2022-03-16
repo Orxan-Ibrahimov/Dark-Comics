@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20211130204205_Okay.cs" />
     <Compile Remove="Migrations\20211130204205_Okay.Designer.cs" />
+    <Compile Remove="Migrations\20220316163555_ChangeReadingComicsTable.cs" />
+    <Compile Remove="Migrations\20220316163555_ChangeReadingComicsTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

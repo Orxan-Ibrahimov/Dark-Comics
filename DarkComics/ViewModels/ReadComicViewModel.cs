@@ -9,5 +9,6 @@ namespace DarkComics.ViewModels
     public class ReadComicViewModel
     {
         public List<Product> Comics { get; set; }
+        public Product Comic { get; set; }
     }
 }

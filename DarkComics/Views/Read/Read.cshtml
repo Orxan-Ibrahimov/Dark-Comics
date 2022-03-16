@@ -1,4 +1,4 @@
-﻿@model ReadViewModel
+﻿@model ReadComicViewModel
 @{
     ViewData["Title"] = "Read";
 }
@@ -11,15 +11,16 @@
                 <h1 class="text-center">Read</h1>
             </div>
         </div>
-        @foreach (var readingComic in Model.ComicDetail.ReadingComics)
+        @foreach (var readingComic in Model.Comic.ComicDetail.ReadingComics)
         {
         <div class="row">
             <div class="col-6 offset-3">
-                <img src="~/assets/img/comics/@Model.ComicDetail.Serie.Name.ToLower().Replace(" ","-")/@Model.ComicDetail.Serie.Id/@readingComic.Image"
+                <img src="~/assets/img/readingComics/@Model.Comic.Name.Replace("#","").Replace(" ","")/@readingComic.Image"
                      class="w-100" alt="@readingComic.Image" />
             </div>
         </div>
         }
+        <h1 class="text-center text-capitalize">The end</h1>
 
     </div>
     

@@ -13,7 +13,7 @@ namespace DarkComics.Models.Entity
     public class ReadingComic:BaseEntity
     {
         [Required, NotMapped]
-        public IFormFile Photo { get; set; }
+        public List<IFormFile> Photos { get; set; }
         [BindNever]
         public string Image { get; set; }
         public DateTime CreatedDate { get; set; }

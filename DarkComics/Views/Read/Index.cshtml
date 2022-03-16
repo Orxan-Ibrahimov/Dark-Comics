@@ -25,7 +25,7 @@
                         @foreach (var comic in Model.Comics)
                         {
                             <a asp-action="Read" asp-route-id="@comic.Id" class="swiper-slide my-4">
-                                <img src="~/assets/img/products/@comic.Image" alt="@comic.Image" />
+                                <img src="~/assets/img/product-@comic.Id/@comic.Image" alt="@comic.Image" />
                             </a>
                         }
                     </div>

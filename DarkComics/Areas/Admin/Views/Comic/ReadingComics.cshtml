@@ -1,0 +1,48 @@
+﻿@model ReadViewModel
+
+@{
+    ViewData["Title"] = "ReadingComics";
+}
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading page-title-icon-rounded">
+            <div class="page-title-icon">
+                <i class="pe-7s-id icon-gradient bg-tempting-azure font-weight-bolder">
+                </i>
+            </div>
+            <div>
+                <h1>Add a New Read Comic</h1>
+                <div class="page-title-subheading">
+                    Wide selection of buttons that feature different styles for backgrounds, borders and hover options!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        <h5 class="card-title">Bootstrap 4 Form Validation</h5>
+        <form enctype="multipart/form-data" class="needs-validation" novalidate="" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div class="form-row">               
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Reading.Photos"></label>
+                    <input asp-for="Reading.Photos" class="form-control" required multiple>
+                    <span asp-validation-for="Reading.Photos"></span>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="ChosenComicId"></label>
+                    <select asp-for="ChosenComicId" asp-items="@Model.ComicList" class="form-control">
+                    </select>
+                    <span asp-validation-for="ChosenComicId"></span>
+                </div>
+            </div>
+
+            <button  class="btn btn-primary" type="submit">Submit form</button>
+        </form>
+    </div>
+</div>

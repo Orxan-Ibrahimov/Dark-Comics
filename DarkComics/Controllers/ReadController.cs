@@ -24,7 +24,7 @@ namespace DarkComics.Controllers
         {
             ReadComicViewModel readComicViewModel = new ReadComicViewModel
             {
-               Comics = _context.Products.Include(p=>p.ComicDetail).ThenInclude(cd=>cd.Serie).Include(p=>p.ProductCharacters).
+               Comics = _context.Products.Include(p=>p.ComicDetail).ThenInclude(cd=>cd.ReadingComics).Include(p=>p.ProductCharacters).
                ThenInclude(pc=>pc.Character).Where(p=>p.Category == Category.Comic && p.ComicDetail.IsCover == true && p.IsActive == true).ToList()
             };
             return View(readComicViewModel);
@@ -37,20 +37,20 @@ namespace DarkComics.Controllers
             {
                 return NotFound();
             }
-            ComicDetail comicDetail = _context.ComicDetails.Include(cd => cd.ReadingComics).Include(cd => cd.Serie).Include(cd => cd.Products).
-                ThenInclude(p => p.ProductCharacters).ThenInclude(p => p.Character).FirstOrDefault(cd => cd.Id == id);
+            Product product = _context.Products.Include(cd => cd.ProductCharacters).Include(cd => cd.ComicDetail).
+                ThenInclude(p => p.ReadingComics).Include(cd => cd.SaleItems).FirstOrDefault(cd => cd.Id == id);
          
 
-            if (comicDetail == null)
+            if (product == null)
             {
                 return NotFound();
             }
 
-            ReadViewModel readViewModel = new ReadViewModel
+            ReadComicViewModel readComicViewModel = new ReadComicViewModel
             {
-                ComicDetail = comicDetail
+                Comic = product
             };
-            return View(readViewModel);
+            return View(readComicViewModel);
         }
 
         // GET: ReadController/Create
